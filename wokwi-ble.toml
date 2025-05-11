@@ -1,0 +1,11 @@
+[[bluetooth.services]]
+uuid = "5ce60b33-255e-4ec6-adde-966c4d679370"
+name = "Temperature Controller"
+[[bluetooth.services.characteristics]]
+uuid = "78fcc4ab-9b9a-401b-8b28-48026244f72a"
+name = "Status Data"
+properties = ["read", "notify"]
+initial = "Temp:0.0C,Target:0C,Heater:OFF,Servo:0,State:IDLE"
+[[bluetooth.devices]]
+name = "TempController"
+services = ["5ce60b33-255e-4ec6-adde-966c4d679370"]

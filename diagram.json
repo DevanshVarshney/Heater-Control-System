@@ -1,0 +1,63 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 62.44, "attrs": {} },
+    {
+      "type": "wokwi-membrane-keypad",
+      "id": "keypad1",
+      "top": -251.6,
+      "left": -493.6,
+      "attrs": {}
+    },
+    { "type": "wokwi-servo", "id": "servo1", "top": -146, "left": -86.4, "attrs": {} },
+    { "type": "board-ds18b20", "id": "temp1", "top": 286.87, "left": -399.12, "attrs": {} },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 407.45,
+      "left": -318.2,
+      "rotate": 180,
+      "attrs": { "value": "4700" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -118.8,
+      "left": 99.8,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": -72.85,
+      "left": 144,
+      "attrs": { "value": "1000" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "keypad1:R1", "esp:13", "green", [ "v67.2", "h240", "v-153.6" ] ],
+    [ "keypad1:R2", "esp:12", "green", [ "v57.6", "h220.4", "v-163.2" ] ],
+    [ "keypad1:R3", "esp:14", "green", [ "v48", "h201.3", "v-163.2" ] ],
+    [ "keypad1:R4", "esp:27", "green", [ "v38.4", "h182.2", "v-163.2" ] ],
+    [ "keypad1:C1", "esp:26", "green", [ "v28.8", "h163.1", "v-163.2" ] ],
+    [ "keypad1:C2", "esp:25", "green", [ "v19.2", "h144", "v-163.2" ] ],
+    [ "keypad1:C3", "esp:33", "green", [ "v9.6", "h124.65", "v-144" ] ],
+    [ "keypad1:C4", "esp:32", "green", [ "v0", "h105.3", "v-172.8" ] ],
+    [ "servo1:GND", "esp:GND.1", "black", [ "h-38.4", "v240" ] ],
+    [ "servo1:V+", "esp:5V", "red", [ "h-28.8", "v288.1", "h19.2" ] ],
+    [ "servo1:PWM", "esp:23", "green", [ "h-19.2", "v67.4", "h288", "v48" ] ],
+    [ "temp1:GND", "esp:GND.1", "black", [ "v38.4", "h412.8", "v-220.8", "h9.6" ] ],
+    [ "temp1:VCC", "esp:5V", "red", [ "v19.2", "h422.4", "v-153.6" ] ],
+    [ "temp1:DQ", "r1:2", "green", [ "v0" ] ],
+    [ "esp:5V", "r1:1", "red", [ "h-19.05", "v201.6" ] ],
+    [ "esp:2", "temp1:DQ", "green", [ "h19.2", "v230.4", "h-566.4" ] ],
+    [ "led1:C", "esp:GND.2", "black", [ "v28.8", "h58", "v76.8" ] ],
+    [ "r2:2", "esp:15", "red", [ "v0" ] ],
+    [ "led1:A", "r2:1", "red", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
