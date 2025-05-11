@@ -7,7 +7,7 @@
 #define TEMP_PIN 2
 #define HEATER_PIN 15
 #define SERVO_PIN 23
-#define MAX_TEMP 125 //Temp above which OVERHEATING will be considered
+#define MAX_TEMP 100 //Temp above which OVERHEATING will be considered
 
 enum TempSystemState {
   STATE_IDLE,
